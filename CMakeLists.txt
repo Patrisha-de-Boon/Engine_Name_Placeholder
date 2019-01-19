@@ -48,3 +48,6 @@ target_link_libraries(${exe} -lm)
 target_link_libraries(${exe} -lXcursor)
 target_link_libraries(${exe} -lXinerama)
 target_link_libraries(${exe} -lrt)
+
+include_directories(/path/to/glm CACHE STRING "glm library location")
+find_package(glm REQUIRED)
