@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.0)
 
 project(Engine_Name_Placeholder)
 
-set(GLFW /home/josephmeleshko/glfw)
+set(GLFW ~/Downloads/glfw-3.2.1)
 set(deps ${GLFW}/deps/)
 
 set(CMAKE_CXX_FLAGS "{CMAKE_CXX_FLAGS} -std=c++11")
@@ -42,7 +42,6 @@ target_link_libraries(particles -lXrandr)
 target_link_libraries(particles -lpthread)
 target_link_libraries(particles -lXi)
 target_link_libraries(particles -ldl)
-target_link_libraries(particles -lGLU)
 target_link_libraries(particles -lm)
 target_link_libraries(particles -lXcursor)
 target_link_libraries(particles -lXinerama)
