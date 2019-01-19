@@ -25,6 +25,7 @@ set(alldeps
 
 set(sourcefiles
     src/particles.c
+    src/Main.cpp
 )
 
 include_directories(${deps})
