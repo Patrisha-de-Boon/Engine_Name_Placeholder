@@ -5,7 +5,9 @@ project(Engine_Name_Placeholder)
 set(GLFW "/path/to/glfw" CACHE STRING "glfw file location")
 set(deps ${GLFW}/deps/)
 
-set(CMAKE_CXX_FLAGS "{CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_FLAGS "-std=c++11")
+
+set(exe "engine")
 
 set(alldeps 
     PUBLIC ${deps}/glad.c
@@ -24,26 +26,25 @@ set(alldeps
 )
 
 set(sourcefiles
-    src/particles.c
-    src/Main.cpp
+    src/main.cpp
 )
 
 include_directories(${deps})
 include_directories(${GLFW}/include/)
 
-add_executable(particles ${sourcefiles})
+add_executable(${exe} ${sourcefiles})
 
-target_sources(particles ${alldeps})
+target_sources(${exe} ${alldeps})
 
-target_link_libraries(particles -lGL)
-target_link_libraries(particles -lglfw3)
-target_link_libraries(particles -lX11)
-target_link_libraries(particles -lXxf86vm)
-target_link_libraries(particles -lXrandr)
-target_link_libraries(particles -lpthread)
-target_link_libraries(particles -lXi)
-target_link_libraries(particles -ldl)
-target_link_libraries(particles -lm)
-target_link_libraries(particles -lXcursor)
-target_link_libraries(particles -lXinerama)
-target_link_libraries(particles -lrt)
+target_link_libraries(${exe} -lGL)
+target_link_libraries(${exe} -lglfw3)
+target_link_libraries(${exe} -lX11)
+target_link_libraries(${exe} -lXxf86vm)
+target_link_libraries(${exe} -lXrandr)
+target_link_libraries(${exe} -lpthread)
+target_link_libraries(${exe} -lXi)
+target_link_libraries(${exe} -ldl)
+target_link_libraries(${exe} -lm)
+target_link_libraries(${exe} -lXcursor)
+target_link_libraries(${exe} -lXinerama)
+target_link_libraries(${exe} -lrt)
