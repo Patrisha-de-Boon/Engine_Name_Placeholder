@@ -1,0 +1,2 @@
+g++ -std=c++11 -c boing.c deps/glad.c
+g++ boing.o glad.o -o boing -lGL -lglfw -lx11 -lXxf86vm -lXrandr -lpthread -lXi
