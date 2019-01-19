@@ -27,6 +27,8 @@ set(alldeps
 
 set(sourcefiles
     src/main.cpp
+    src/mainloop.cpp
+    src/mainloop.h
 )
 
 include_directories(${deps})

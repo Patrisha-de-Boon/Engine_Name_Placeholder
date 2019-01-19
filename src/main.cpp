@@ -3,6 +3,7 @@
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include "mainloop.h"
 
 #include <iostream>
 
@@ -26,8 +27,9 @@ int main(int argc, char** argv) {
 
     glfwMakeContextCurrent(window);
     gladLoadGLLoader((GLADloadproc) glfwGetProcAddress);
-    
-    while(true){};
+
+    mainLoop(window);
+
     //shutdown protocol
     glfwDestroyWindow(window);
     glfwTerminate();
