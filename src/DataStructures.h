@@ -1,3 +1,6 @@
+#ifndef DATASTRUCTURES_H
+#define DATASTRUCTURES_H
+
 #include <glm/vec3.hpp>
 
 class Shape {
@@ -5,6 +8,11 @@ class Shape {
         glm::vec3 centerPoint;
         glm::vec3 velocity;
         bool isMovable;
+        float mass;
+        int getWhoAmI(){ return whoAmI; }
+
+    protected: 
+        int whoAmI;
 };
 
 class DrawableShape{
@@ -13,7 +21,7 @@ class DrawableShape{
         virtual void draw(){};
 };
 
-class Sphere : Shape{
+class Sphere : public Shape{
     public:
         float radius;
         
@@ -21,10 +29,11 @@ class Sphere : Shape{
             this->centerPoint = centerPoint;
             this->velocity = velocity;
             this->radius = radius;
+            this->whoAmI = 1;
         }
 };
 
-class Box : Shape {
+class Box : public Shape {
     public:
         float width;
         float height;
@@ -34,5 +43,8 @@ class Box : Shape {
             this->velocity = velocity;
             this->width = width;
             this->height = height;
+            this->whoAmI = 6;
         }
 };
+
+#endif
