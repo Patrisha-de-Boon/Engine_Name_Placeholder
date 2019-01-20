@@ -34,6 +34,7 @@ set(sourcefiles
     src/globals.h
     src/graphics/drawing.cpp
     src/graphics/drawing.h
+    src/shader/shader.h
 )
 
 include_directories(${deps})

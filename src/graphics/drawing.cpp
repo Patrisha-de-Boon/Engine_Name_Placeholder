@@ -64,12 +64,16 @@ unsigned int createShaders() {
     return shaderProgram;
 }
 
+<<<<<<< HEAD
 void draw(unsigned int shaderProgram, float vertices[], int size) {
     // Enable depth test
     glEnable(GL_DEPTH_TEST);
     // Accept fragment if it closer to the camera than the former one
     glDepthFunc(GL_LESS);
 
+=======
+void draw(Shader shader, float vertices[], int size) {
+>>>>>>> 7b1488a590f03d75a05bc9848e88171e0c35c341
     // idk if it works but it doesn't not work
     unsigned int VBO;
     glGenBuffers(1, &VBO);
@@ -86,7 +90,7 @@ void draw(unsigned int shaderProgram, float vertices[], int size) {
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
     // 2. use our shader program when we want to render an object
-    glUseProgram(shaderProgram);
+    shader.use();
     // 3. now draw the object
     // someOpenGLFunctionThatDrawsOurTriangle();
 
@@ -105,11 +109,11 @@ void draw(unsigned int shaderProgram, float vertices[], int size) {
 
     // ..:: Drawing code (in render loop) :: ..
     // 4. draw the object
-    glUseProgram(shaderProgram);
+    shader.use();
     glBindVertexArray(VAO);
     // someOpenGLFunctionThatDrawsOurTriangle();
 
-    glUseProgram(shaderProgram);
+    shader.use();
     glBindVertexArray(VAO);
     glDrawArrays(GL_TRIANGLES, 0, size/3);
 
@@ -138,7 +142,7 @@ void draw(unsigned int shaderProgram, float vertices[], int size) {
     glEnableVertexAttribArray(0);
 
     // ..:: Drawing code (in render loop) :: ..
-    glUseProgram(shaderProgram);
+    shader.use();
     glBindVertexArray(VAO);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);
