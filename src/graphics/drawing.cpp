@@ -11,7 +11,6 @@ const GLchar* fragmentShaderSource = "#version 330 core\nout vec4 FragColor;\nvo
 //  0.0f,  0.5f, 0.0f
 // };
 
-
 // float vertices[] = {
 //      0.5f,  0.5f, 0.0f,  // top right
 //      0.5f, -0.5f, 0.0f,  // bottom right
