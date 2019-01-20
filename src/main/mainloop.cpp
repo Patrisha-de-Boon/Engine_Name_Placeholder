@@ -1,6 +1,7 @@
 #include "mainloop.h"
 #include "drawing.h"
 #include <GLFW/glfw3.h>
+#include "shader.h"
 
 void mainLoop(GLFWwindow* window) {
     Shader shader("../src/shader/vertexShader.txt", "../src/shader/fragmentShader.txt");

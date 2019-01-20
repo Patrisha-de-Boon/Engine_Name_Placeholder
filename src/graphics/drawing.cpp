@@ -64,16 +64,7 @@ unsigned int createShaders() {
     return shaderProgram;
 }
 
-<<<<<<< HEAD
-void draw(unsigned int shaderProgram, float vertices[], int size) {
-    // Enable depth test
-    glEnable(GL_DEPTH_TEST);
-    // Accept fragment if it closer to the camera than the former one
-    glDepthFunc(GL_LESS);
-
-=======
 void draw(Shader shader, float vertices[], int size) {
->>>>>>> 7b1488a590f03d75a05bc9848e88171e0c35c341
     // idk if it works but it doesn't not work
     unsigned int VBO;
     glGenBuffers(1, &VBO);
