@@ -64,7 +64,7 @@ unsigned int createShaders() {
     return shaderProgram;
 }
 
-void draw(unsigned int shaderProgram, float vertices[], int size) {
+void draw(Shader shader, float vertices[], int size) {
     // idk if it works but it doesn't not work
     unsigned int VBO;
     glGenBuffers(1, &VBO);
@@ -81,7 +81,7 @@ void draw(unsigned int shaderProgram, float vertices[], int size) {
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
     // 2. use our shader program when we want to render an object
-    glUseProgram(shaderProgram);
+    shader.use();
     // 3. now draw the object
     // someOpenGLFunctionThatDrawsOurTriangle();
 
@@ -100,11 +100,11 @@ void draw(unsigned int shaderProgram, float vertices[], int size) {
 
     // ..:: Drawing code (in render loop) :: ..
     // 4. draw the object
-    glUseProgram(shaderProgram);
+    shader.use();
     glBindVertexArray(VAO);
     // someOpenGLFunctionThatDrawsOurTriangle();
 
-    glUseProgram(shaderProgram);
+    shader.use();
     glBindVertexArray(VAO);
     glDrawArrays(GL_TRIANGLES, 0, 3);
 
@@ -133,7 +133,7 @@ void draw(unsigned int shaderProgram, float vertices[], int size) {
     glEnableVertexAttribArray(0);
 
     // ..:: Drawing code (in render loop) :: ..
-    glUseProgram(shaderProgram);
+    shader.use();
     glBindVertexArray(VAO);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);

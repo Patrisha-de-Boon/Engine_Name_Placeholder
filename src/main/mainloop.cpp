@@ -3,7 +3,7 @@
 #include <GLFW/glfw3.h>
 
 void mainLoop(GLFWwindow* window) {
-    unsigned int shaderProgram = createShaders();
+    Shader shader("../src/shader/vertexShader.txt", "../src/shader/fragmentShader.txt");
 
     float vertices[] = {
          0.5f,  0.5f, 0.0f,  // top right
@@ -19,7 +19,7 @@ void mainLoop(GLFWwindow* window) {
     // };
 
     glClear(GL_COLOR_BUFFER_BIT);
-    draw(shaderProgram, vertices, sizeof(vertices));
+    draw(shader, vertices, sizeof(vertices));
     glfwSwapBuffers(window);
 
     do {
