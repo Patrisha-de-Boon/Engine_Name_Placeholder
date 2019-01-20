@@ -27,8 +27,8 @@ bool DetectSpherePlaneCollision(Sphere *sphere, Plane *plane){
 }
 
 
-bool CollideSphereWithPlane(Sphere *sphere, Plane *plane){
-    if (DetectSpherePlaneCollision()){
+bool CollideSphereWithPlane(Sphere* sphere, Plane* plane){
+    if (DetectSpherePlaneCollision(sphere, plane)){
         sphere->velocity = glm::reflect(sphere->velocity, glm::cross(plane->vector1, plane->vector2));
         return true;
     } 
@@ -58,19 +58,7 @@ bool CollideSpheres(Sphere *sphere1, Sphere *sphere2) {
         nv2 -= projectUonV(sphere2->velocity, sphere1->centerPoint - sphere2->centerPoint);
         
         sphere1->velocity = nv1;
-        sphere2->velocity = nv2;
-
-        // nv1 += projectUonV(s2.velocity, minus(s2.position, s1.position));
-        // If the spheres had different masses, then u would need to scale the amounts of
-        // velocities exchanged inversely proportional to their masses.
-        // nv1 = s1.velocity;
-        // nv2 = s2.velocity;
-        // nv1 -= projectUonV(s1.velocity, minus(s1.position, s2.position));
-        // nv2 += projectUonV(s1.velocity, minus(s2.position, s1.position));
-        // nv2 -= projectUonV(s2.velocity, minus(s1.position, s2.position));
-        // s2.velocity = nv2;
-        // s1.velocity = nv1;
-        
+        sphere2->velocity = nv2;        
 
         return true;
     }
@@ -79,8 +67,19 @@ bool CollideSpheres(Sphere *sphere1, Sphere *sphere2) {
     }
 }
 
-void CheckCollisionType(Shape *shape1, Shape *shape2){
-	if (shape1->getWhoAmI() == 1 && shape2->getWhoAmI() == 1) {
+void CollideShapes(Shape *shape1, Shape *shape2){
+    int WhoIs1 = shape1->getWhoAmI();
+    int WhoIs2 = shape2->getWhoAmI();
+	if ( WhoIs1 == 1 && WhoIs2== 1) {
         CollideSpheres((Sphere*)shape1, (Sphere*)shape2);
+    }
+    else if ( WhoIs1 == 6 && WhoIs2 == 6){
+
+    }
+    else if ( WhoIs1 == 1 && WhoIs2 == 6) {
+
+    }
+    else if ( WhoIs1 == 6 && WhoIs2 == 1) {
+
     }
 }

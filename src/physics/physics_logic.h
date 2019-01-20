@@ -8,6 +8,6 @@ bool DetectSphereCollision(Sphere *sphere1, Sphere *sphere2);
 glm::vec3 projectUonV(glm::vec3 u, glm::vec3 v);
 bool CollideSphereWithPlane(Sphere *sphere, Plane *plane);
 bool CollideSpheres(Sphere *sphere1, Sphere *sphere2);
-void CheckCollisionType(Shape *shape1, Shape *shape2);
+void CollideShapes(Shape *shape1, Shape *shape2);
 
 #endif

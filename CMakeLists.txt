@@ -34,6 +34,10 @@ set(sourcefiles
     src/globals.h
     src/graphics/drawing.cpp
     src/graphics/drawing.h
+    src/physics/physics_loop.cpp
+    src/physics/physics_loop.h
+    src/physics/physics_logic.cpp
+    src/physics/physics_logic.h
 )
 
 include_directories(${deps})
