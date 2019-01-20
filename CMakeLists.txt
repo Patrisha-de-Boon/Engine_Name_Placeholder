@@ -9,7 +9,7 @@ set(CMAKE_CXX_FLAGS "-std=c++11")
 
 set(exe "engine")
 
-set(alldeps 
+set(alldeps
     PUBLIC ${deps}/glad.c
     PUBLIC ${deps}/linmath.h
     PUBLIC ${deps}/tinycthread.c
@@ -32,6 +32,8 @@ set(sourcefiles
     src/callbacks.cpp
     src/callbacks.h
     src/globals.h
+    src/drawing.cpp
+    src/drawing.h
 )
 
 include_directories(${deps})
