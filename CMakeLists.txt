@@ -29,6 +29,9 @@ set(sourcefiles
     src/main.cpp
     src/mainloop.cpp
     src/mainloop.h
+    src/callbacks.cpp
+    src/callbacks.h
+    src/globals.h
 )
 
 include_directories(${deps})

@@ -4,6 +4,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include "mainloop.h"
+#include "callbacks.h"
 
 #include <iostream>
 
@@ -27,6 +28,8 @@ int main(int argc, char** argv) {
 
     glfwMakeContextCurrent(window);
     gladLoadGLLoader((GLADloadproc) glfwGetProcAddress);
+
+    setupCallbacks(window);
 
     mainLoop(window);
 
