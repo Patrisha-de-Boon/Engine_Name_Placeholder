@@ -5,5 +5,5 @@
 #include<iostream>
 
 unsigned int createShaders();
-void draw(unsigned int shaderProgram);
+void draw(unsigned int shaderProgram, float vertices[], int size);
 #endif
