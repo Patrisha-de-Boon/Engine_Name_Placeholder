@@ -4,5 +4,6 @@
 #include<GLFW/glfw3.h>
 #include<iostream>
 
-void draw();
+unsigned int createShaders();
+void draw(unsigned int shaderProgram);
 #endif
