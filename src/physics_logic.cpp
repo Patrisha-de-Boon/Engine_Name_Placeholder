@@ -25,7 +25,8 @@ bool CollideSpheres(Sphere *sphere1, Sphere *sphere2) {
         // this can probably be optimised a bit, but it basically swaps the velocity amounts
         // that are perpendicular to the surface of the collistion.
 
-        // this is some VOODOO MAGIC from stack overflow that I had to convert back to glfw / glad. 
+        // this is some VOODOO MAGIC from stack overflow that I had to convert back to glfw / glad.
+	// https://stackoverflow.com/questions/3232318/sphere-sphere-collision-detection-reaction 
         
         glm::vec3 nv2; // new velocity for sphere 2
         glm::vec3 nv1; // new velocity for sphere 1
