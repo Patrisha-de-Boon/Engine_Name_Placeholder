@@ -3,7 +3,8 @@
 #include<glad/glad.h>
 #include<GLFW/glfw3.h>
 #include<iostream>
+#include<shader.h>
 
 unsigned int createShaders();
-void draw(unsigned int shaderProgram);
+void draw(Shader shader, float vertices[], int size);
 #endif

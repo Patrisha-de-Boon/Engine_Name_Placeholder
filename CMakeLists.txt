@@ -34,6 +34,7 @@ set(sourcefiles
     src/globals.h
     src/graphics/drawing.cpp
     src/graphics/drawing.h
+    src/shader/shader.h
     src/physics/physics_loop.cpp
     src/physics/physics_loop.h
     src/physics/physics_logic.cpp
