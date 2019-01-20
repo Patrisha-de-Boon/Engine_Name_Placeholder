@@ -51,4 +51,9 @@ class Box : public Shape {
         }
 };
 
+struct Plane {
+    glm::vec3 vector1;
+    glm::vec3 vector2;
+}
+
 #endif
