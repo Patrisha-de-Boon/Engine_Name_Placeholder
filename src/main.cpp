@@ -1,5 +1,5 @@
 //main file
-//build a window and call (insert some sort of main loop here)
+//build a window and call main loop
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -10,10 +10,8 @@
 
 int main(int argc, char** argv) {
     if (!glfwInit()) {
-        std::cout << "FAILED!";
+        std::cout << "Init failed";
         return 1;
-    } else {
-        std::cout << "Initilized";
     }
     
     GLFWwindow* window = glfwCreateWindow(640, 480, "Engine_Title_Placeholder", NULL, NULL);
@@ -21,9 +19,6 @@ int main(int argc, char** argv) {
     if (!window) {
         std::cout << "Window failed";
         return 1;
-    }
-    else {
-        std::cout << "Window created";
     }
 
     glfwMakeContextCurrent(window);
