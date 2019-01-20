@@ -26,18 +26,25 @@ set(alldeps
 )
 
 set(sourcefiles
-    src/main.cpp
-    src/mainloop.cpp
-    src/mainloop.h
-    src/callbacks.cpp
-    src/callbacks.h
+    src/main/main.cpp
+    src/main/mainloop.cpp
+    src/main/mainloop.h
+    src/callbacks/callbacks.cpp
+    src/callbacks/callbacks.h
     src/globals.h
-    src/drawing.cpp
-    src/drawing.h
+    src/graphics/drawing.cpp
+    src/graphics/drawing.h
 )
 
 include_directories(${deps})
 include_directories(${GLFW}/include/)
+
+include_directories(src)
+include_directories(src/physics)
+include_directories(src/callbacks)
+include_directories(src/main)
+include_directories(src/shader)
+include_directories(src/graphics)
 
 add_executable(${exe} ${sourcefiles})
 
