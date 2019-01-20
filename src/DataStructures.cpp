@@ -1,15 +1,10 @@
 #include <glm/vec3.hpp>
 
 class Shape {
-    protected:
+    public:
         glm::vec3 centerPoint;
         glm::vec3 velocity;
-
-    public:
-        glm::vec3 getCenterPoint(){ return centerPoint; }
-        virtual bool setCenterPoint(){}
-        glm::vec3 getVelocity(){ return velocity; }
-        virtual bool setCenterPoint(){}
+        bool isMovable;
 };
 
 class DrawableShape{
@@ -18,53 +13,25 @@ class DrawableShape{
         virtual void draw(){};
 };
 
-class MoveableShape : Shape{
-    public:
-        bool setCenterPoint(glm::vec3 centerPoint){
-            this->centerPoint = centerPoint;
-            return true;
-        }
-
-        bool setVelocity(glm::vec3 velocity){
-            this->velocity = velocity;
-            return true;
-        }
-};
-
-class ImmoveableShape : Shape{
-    public:
-        bool setCenterPoint(glm::vec3 centerPoint){
-            this->centerPoint = centerPoint;
-            return false;
-        }
-
-        bool setVelocity(glm::vec3 velocity){
-            this->velocity = velocity;
-            return false;
-        }
-};
-
-class Sphere : MoveableShape{
+class Sphere : Shape{
     public:
         float radius;
         
         Sphere(float radius, glm::vec3 centerPoint, glm::vec3 velocity) {
-            setCenterPoint(centerPoint);
-            setVelocity(velocity);
+            this->centerPoint = centerPoint;
+            this->velocity = velocity;
             this->radius = radius;
         }
-
-        
 };
 
-class Box : MoveableShape {
+class Box : Shape {
     public:
         float width;
         float height;
 
         Box(float width, float height, glm::vec3 centerPoint, glm::vec3 velocity) {
-            setCenterPoint(centerPoint);
-            setVelocity(velocity);
+            this->centerPoint = centerPoint;
+            this->velocity = velocity;
             this->width = width;
             this->height = height;
         }
