@@ -8,6 +8,7 @@ void mainLoop(GLFWwindow* window) {
         glClear( GL_COLOR_BUFFER_BIT );
 
         draw();
+        
         // Swap buffers and get events
         glfwSwapBuffers(window);
         glfwPollEvents();
