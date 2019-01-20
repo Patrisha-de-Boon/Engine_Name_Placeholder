@@ -9,3 +9,4 @@ void CheckCollisionType(Shape *shape1, Shape *shape2){
 void CollideSpheres(Sphere *sphere1, Sphere *sphere2) {
     int temp = sphere1->getWhoAmI();
 }
+
