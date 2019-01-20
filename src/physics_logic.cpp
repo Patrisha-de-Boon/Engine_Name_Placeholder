@@ -18,13 +18,27 @@ glm::vec3 projectUonV(glm::vec3 u, glm::vec3 v){
     return r;
 }
 
+bool DetectSpherePlaneCollision(Sphere *sphere, Plane *plane){
+    double d = glm::dot(sphere->centerPoint - plane->point, glm::cross(plane->vector1, plane->vector2));
+    if (d <= sphere->radius){
+        return true;
+    }
+    return false;
+}
+
 
 bool CollideSphereWithPlane(Sphere *sphere, Plane *plane){
-    
+    if (DetectSpherePlaneCollision()){
+        sphere->velocity = glm::reflect(sphere->velocity, glm::cross(plane->vector1, plane->vector2));
+        return true;
+    } 
+    else {
+        return false;
+    }
 }
 
 bool CollideSpheres(Sphere *sphere1, Sphere *sphere2) {
-    if (DetectSphereCollision){
+    if (DetectSphereCollision(sphere1, sphere2)){
         
         // this can probably be optimised a bit, but it basically swaps the velocity amounts
         // that are perpendicular to the surface of the collistion.
