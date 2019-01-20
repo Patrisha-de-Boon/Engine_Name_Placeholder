@@ -7,6 +7,7 @@ class Shape {
     public:
         glm::vec3 centerPoint;
         glm::vec3 velocity;
+        glm::vec3 orientation;
         bool isMovable;
         float mass;
         int getWhoAmI(){ return whoAmI; }
@@ -18,14 +19,14 @@ class Shape {
 class DrawableShape{
     public:
         Shape collidable;
-        virtual void draw(){};
+        float vertices[];
 };
 
 class Sphere : public Shape{
     public:
         float radius;
         
-        Sphere(glm::vec3 centerPoint, glm::vec3 velocity, float radius, float mass = 1, float isMovable = true) {
+        Sphere(glm::vec3 centerPoint, glm::vec3 velocity, glm::vec3 orientation, float radius, float mass = 1, float isMovable = true) {
             this->centerPoint = centerPoint;
             this->velocity = velocity;
             this->radius = radius;
@@ -40,7 +41,7 @@ class Box : public Shape {
         float width;
         float height;
 
-        Box(glm::vec3 centerPoint, glm::vec3 velocity, float width, float height, float mass = 1, float isMovable = true) {
+        Box(glm::vec3 centerPoint, glm::vec3 velocity, glm::vec3 orientation, float width, float height, float mass = 1, float isMovable = true) {
             this->centerPoint = centerPoint;
             this->velocity = velocity;
             this->width = width;
@@ -54,6 +55,7 @@ class Box : public Shape {
 struct Plane {
     glm::vec3 vector1;
     glm::vec3 vector2;
-}
+    glm::vec3 point;
+};
 
 #endif
